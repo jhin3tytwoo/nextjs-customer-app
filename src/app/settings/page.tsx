@@ -10,20 +10,10 @@ export default function SettingsPage() {
     avatar: "JD",
   });
 
-  const [preferences, setPreferences] = useState({
-    notifications: true,
-    emailAlerts: false,
-    darkMode: false,
-  });
-
   const [security, setSecurity] = useState({
     twoFactor: true,
     sessionTimeout: "30",
   });
-
-  const handleToggle = (key: keyof typeof preferences) => {
-    setPreferences((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
 
   const handleSave = () => console.log("Settings saved");
 
@@ -32,24 +22,6 @@ export default function SettingsPage() {
     { id: "preferences", label: "Preferences", icon: "⚙️" },
     { id: "security", label: "Security", icon: "🔒" },
     { id: "billing", label: "Billing", icon: "💳" },
-  ];
-
-  const preferenceItems = [
-    {
-      key: "notifications",
-      label: "Push Notifications",
-      desc: "Receive notifications about important updates",
-    },
-    {
-      key: "emailAlerts",
-      label: "Email Alerts",
-      desc: "Get email notifications for new customers",
-    },
-    {
-      key: "darkMode",
-      label: "Dark Mode",
-      desc: "Use dark theme across the application",
-    },
   ];
 
   return (
@@ -107,43 +79,6 @@ export default function SettingsPage() {
                 ))}
               </div>
             </section>
-
-            {/* Preferences Section */}
-            <section className="p-6 bg-white rounded-2xl shadow-sm border">
-              <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-                ⚙️ Preferences
-              </h2>
-              <div className="space-y-6">
-                {preferenceItems.map((p) => (
-                  <div
-                    key={p.key}
-                    className="flex items-center justify-between py-3 border-b"
-                  >
-                    <div>
-                      <h3 className="font-medium">{p.label}</h3>
-                      <p className="text-sm text-gray-600">{p.desc}</p>
-                    </div>
-                    <button
-                      onClick={() => handleToggle(p.key as any)}
-                      className={`relative w-12 h-6 rounded-full transition-colors ${
-                        preferences[p.key as keyof typeof preferences]
-                          ? "bg-blue-600"
-                          : "bg-gray-300"
-                      }`}
-                    >
-                      <div
-                        className={`absolute top-0.5 w-5 h-5 bg-white rounded-full transition-transform ${
-                          preferences[p.key as keyof typeof preferences]
-                            ? "translate-x-6"
-                            : "translate-x-0.5"
-                        }`}
-                      />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </section>
-
             {/* Security Section */}
             <section className="p-6 bg-white rounded-2xl shadow-sm border">
               <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
