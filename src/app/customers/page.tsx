@@ -41,7 +41,7 @@ export default function CustomersPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header Section */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Customers</h1>
@@ -144,10 +144,16 @@ export default function CustomersPage() {
                 <thead className="bg-gray-50 border-b border-gray-100">
                   <tr>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Customer
+                      ID
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Contact
+                      Name
+                    </th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Email
+                    </th>
+                    <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Phone
                     </th>
                     <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Status
@@ -167,17 +173,15 @@ export default function CustomersPage() {
                     >
                       <td className="px-6 py-4">
                         <div className="flex items-center">
-                          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-sm mr-4">
-                            {c.name_first[0]}
-                            {c.name_last[0]}
+                          <div className="text-sm text-gray-500">
+                            {c.customer_id}
                           </div>
-                          <div>
-                            <div className="text-sm font-medium text-gray-900">
-                              {c.name_first} {c.name_last}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              ID: {c.customer_id}
-                            </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center">
+                          <div className="text-sm font-medium text-gray-900">
+                            {c.name_first} {c.name_last}
                           </div>
                         </div>
                       </td>
@@ -185,6 +189,8 @@ export default function CustomersPage() {
                         <div className="text-sm text-gray-900">
                           {c.email_primary}
                         </div>
+                      </td>
+                      <td className="px-6 py-4">
                         <div className="text-sm text-gray-500">
                           {c.phone_primary}
                         </div>
@@ -217,10 +223,6 @@ export default function CustomersPage() {
                 }}
               >
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold mr-4">
-                    {c.name_first[0]}
-                    {c.name_last[0]}
-                  </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">
                       {c.name_first} {c.name_last}
