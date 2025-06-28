@@ -106,7 +106,7 @@ export default function CustomerDetailPage({
             Customer Not Found
           </h2>
           <p className="text-gray-600">
-            The customer data you're looking for doesn't exist.
+            The customer data you&apos;re looking for doesn&apos;t exist.
           </p>
         </div>
       </div>
